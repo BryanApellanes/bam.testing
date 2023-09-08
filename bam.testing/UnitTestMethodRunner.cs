@@ -1,6 +1,5 @@
 ﻿using Bam.Net.Logging;
 using Bam.Testing.Unit;
-using Bam.Testing.Vs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bam.Testing.Vs
+namespace Bam.Testing
 {
     public abstract class TestMethodRunner<T> where T : TestMethod
     {
