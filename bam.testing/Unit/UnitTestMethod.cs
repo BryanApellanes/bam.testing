@@ -28,7 +28,7 @@ namespace Bam.Testing.Unit
         public static List<UnitTestMethod> FromAssembly(Assembly assembly)
         {
             List<UnitTestMethod> tests = new List<UnitTestMethod>();
-            tests.AddRange(FromAssembly<UnitTestMethod>(assembly, typeof(UnitTestAttribute)));
+            tests.AddRange(FromAssembly<UnitTestMethod>(assembly, typeof(UnitTest)));
             tests.Sort((l, r) => l.Information.CompareTo(r.Information));
             return tests;
         }

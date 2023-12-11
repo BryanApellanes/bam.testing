@@ -8,7 +8,9 @@ namespace Bam.Testing
 {
     public enum TestType
     {
+        Unspecified,
         Unit,
-        Integration
+        Integration,
+        Specification
     }
 }

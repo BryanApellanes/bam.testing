@@ -18,7 +18,7 @@ namespace Bam.Testing
     /// Though it isn't required that the SetupContext be used for test 
     /// initialization it is provided as an option.
     /// </remarks>
-    public class SetupContext : Incubator
+    public class SetupContext : DependencyProvider
     {
         internal SetupContext()
         {

@@ -7,11 +7,11 @@ namespace Bam.Testing
 {
     public class TestIgnoredEventArgs : EventArgs
     {
-        public TestIgnoredEventArgs(UnitTestAttribute attribute)
+        public TestIgnoredEventArgs(UnitTest attribute)
         {
             Attribute = attribute;
         }
 
-        public UnitTestAttribute Attribute { get; set; }
+        public UnitTest Attribute { get; set; }
     }
 }

@@ -1,4 +1,3 @@
-using Bam.Net;
 using System;
 
 namespace Bam.Testing

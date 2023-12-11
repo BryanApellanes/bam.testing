@@ -59,12 +59,12 @@ namespace Bam.Testing
 
         public void IsA(Type type)
         {
-            Because.ItsTrue($"the {Name} is a {type.Name}", Value.GetType() == type, "the object under test is NOT a {0}"._Format(type.Name));
+            Because.ItsTrue($"the {Name} is a {type.Name}", Value.GetType() == type, "the object under test is NOT a {0}".Format(type.Name));
         }
 
         public void IsEqualTo(object obj)
         {
-            Because.ItsTrue($"{Name} .Equals({obj})", Value.Equals(obj), "{0} did not .Equals({1})"._Format(Name, obj));
+            Because.ItsTrue($"{Name} .Equals({obj})", Value.Equals(obj), "{0} did not .Equals({1})".Format(Name, obj));
         }
 
         public void HasProperty(string propertyName)

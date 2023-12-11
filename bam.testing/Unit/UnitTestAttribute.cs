@@ -14,6 +14,7 @@ namespace Bam.Testing.Unit
     /// Attribute used to mark a method as a Unit Test
     /// </summary>
     [Serializable]
+    [Obsolete("Use UnitTest instead")]
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class UnitTestAttribute : ConsoleActionAttribute
     {

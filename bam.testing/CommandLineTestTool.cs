@@ -1,5 +1,5 @@
 ﻿using Bam.CommandLine;
-using Bam.Net.CommandLine;
+using Bam.Console;
 using Bam.Net.Logging;
 using Bam.Testing.Integration;
 using Bam.Testing.Specification;
@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Bam.Testing
 {
+    [Obsolete("Use UnitTestMenuContainer instead")]
     public class CommandLineTestTool : CommandLineTool
     {
         static CommandLineTestTool()
@@ -106,15 +107,15 @@ namespace Bam.Testing
             IntegrationTestRunner.RunIntegrationTests(Assembly.GetEntryAssembly());
         }
 
-        public static void UnitTestMenu(Assembly assembly, ConsoleMenu[] otherMenus, string header)
+        public static void UnitTestMenu(Assembly assembly, CommandLine.ConsoleMenu[] otherMenus, string header)
         {
-            Console.WriteLine(header);
+            System.Console.WriteLine(header);
             ITestRunner<UnitTestMethod> runner = GetUnitTestRunner(assembly, Log.Default);
             ShowActions(runner.GetTests());
-            Console.WriteLine();
-            Console.WriteLine("Q to quit\ttype all to run all tests.");
+            System.Console.WriteLine();
+            System.Console.WriteLine("Q to quit\ttype all to run all tests.");
             string answer = ShowSelectedMenuOrReturnAnswer(otherMenus);
-            Console.WriteLine();
+            System.Console.WriteLine();
 
             try
             {

@@ -189,7 +189,7 @@ namespace Bam.Testing
         [DebuggerStepThrough]
         public virtual void RunTest(TestMethod test)
         {
-            if (test.Attribute is UnitTestAttribute testAttribute)
+            if (test.Attribute is UnitTest testAttribute)
             {
                 if (testAttribute.Ignore)
                 {

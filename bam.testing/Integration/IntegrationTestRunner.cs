@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
-using Bam.Net.CommandLine;
 using Bam.Net.Logging;
 using Bam.CommandLine;
 using Bam.Net;
+using Bam.Console;
 
 namespace Bam.Testing.Integration
 {
@@ -26,7 +26,7 @@ namespace Bam.Testing.Integration
         /// <summary>
         /// Event that fires when a test passes.
         /// </summary>
-        public static event EventHandler<ConsoleMethod> IntegrationTestPassed;
+        public static event EventHandler<CommandLine.ConsoleMethod> IntegrationTestPassed;
 
         public static void RunIntegrationTests(FileInfo file, EventHandler<Exception> onFailed = null)
         {
@@ -48,7 +48,7 @@ namespace Bam.Testing.Integration
             IntegrationTestContainerAttribute containerAttr = containerType.GetCustomAttributeOfType<IntegrationTestContainerAttribute>();
             if (containerAttr == null)
             {
-                throw new InvalidOperationException("The specified type ({0}) is not a valid IntegrationTestcontainer, it is missing the IntegrationTestContainer attribute"._Format(containerType.Name));
+                throw new InvalidOperationException("The specified type ({0}) is not a valid IntegrationTestcontainer, it is missing the IntegrationTestContainer attribute".Format(containerType.Name));
             }
             string containerDescription = string.IsNullOrEmpty(containerAttr.Description) ? containerType.Name.PascalSplit(" ") : containerAttr.Description;
             Message.PrintLine("Running ({0})", ConsoleColor.DarkGreen, containerDescription);
@@ -73,7 +73,7 @@ namespace Bam.Testing.Integration
                     Pass(description);
                     try
                     {
-                        IntegrationTestPassed?.Invoke(null, new ConsoleMethod(testMethod));
+                        IntegrationTestPassed?.Invoke(null, new CommandLine.ConsoleMethod(testMethod));
                     }
                     catch (Exception ex)
                     {

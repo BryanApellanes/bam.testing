@@ -1,11 +1,9 @@
-﻿using Bam.Net.Data.Repositories;
+﻿using Bam.Data.Schema;
+using Bam.Net.Data.Repositories;
+using Bam.Net.Data.Schema;
 using Bam.Net.Data.SQLite;
+using Bam.Net.Logging;
 using Bam.Testing.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Bam.Testing.Unit
 {
@@ -18,13 +16,15 @@ namespace Bam.Testing.Unit
         public UnitTestRunListener()
         {
         }
-        public UnitTestRunListener(string resultDirectory, string resultFileName)
+
+        public UnitTestRunListener(IDaoCodeWriter daoCodeWriter, IWrapperGenerator wrapperGenerator, string resultDirectory, string resultFileName)
         {
-            DaoRepository = new DaoRepository(new SQLiteDatabase(resultDirectory, resultFileName));
+            DaoRepository = new DaoRepository(new SchemaProvider(), new DaoGenerator(daoCodeWriter), wrapperGenerator, new SQLiteDatabase(resultDirectory, resultFileName), Log.Default);
             DaoRepository.AddType(typeof(TestResult));
             DaoRepository.EnsureDaoAssemblyAndSchema();
         }
-        public DaoRepository DaoRepository { get; set; }
+
+        public IDaoRepository DaoRepository { get; set; }
 
         public override void TestFailed(object sender, TestExceptionEventArgs args)
         {

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using Bam.Net;
 using Bam.Net.Logging;
-using Bam.Net.CommandLine;
 using Bam.CommandLine;
+using Bam.Console;
 
 namespace Bam.Testing.Specification
 {

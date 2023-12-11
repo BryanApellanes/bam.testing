@@ -1,7 +1,6 @@
 /*
 	Copyright © Bryan Apellanes 2015  
 */
-using Bam.Net;
 using Bam.Net.Logging;
 using System;
 using System.Collections.Generic;
