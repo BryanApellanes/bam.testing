@@ -16,5 +16,15 @@ namespace Bam.Testing
         }
 
         public TestType[] TypeTypes { get; private set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the test should be run synchronously.
+        /// </summary>
+        public bool RunSynchronously { get; set; } = false;
+
+        /// <summary>
+        /// Gets the object used to run tests synchronously.
+        /// </summary>
+        public static object Lock { get; } = new object();
     }
 }

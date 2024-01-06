@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Bam.Testing
 {
     [UnitTestMenu()]
-    public class UnitTestMenuContainer : MenuContainer
+    public abstract class UnitTestMenuContainer : MenuContainer
     {
         /// <summary>
         /// Create a new UnitTestMenuContainer using the specified dependency provider.
@@ -22,7 +22,11 @@ namespace Bam.Testing
             this.SetDependencyProvider(this.Configure(serviceRegistry));
         }
 
-
+        /// <summary>
+        /// Configures the specified service registry before setting as the DependencyProvider property.
+        /// </summary>
+        /// <param name="serviceRegistry">The service registry.</param>
+        /// <returns>ServiceRegistry</returns>
         public virtual ServiceRegistry Configure(ServiceRegistry serviceRegistry) 
         {
             return serviceRegistry;
